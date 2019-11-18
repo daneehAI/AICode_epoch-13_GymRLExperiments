@@ -9,21 +9,29 @@ Each notebook contains a few variations of a specific algorithm. A list of all a
 1. Q-learning with a Q table. 3 different Q-tables are implemented. All of these contain Q values for the 3 possible actions for each state, but the amount of states differs. These states are expressed in terms of comparisons of values from the observation. These 6 values are labeled [x1, y1, x2, y2, x3, y3].
    a. The first table only takes into account the relations of the coordinates in the current observation. This means this
       implementation does not know in what direction it is moving, but only its current position.
+      
       s1: x1 <= x2 <= x3 && y1 <= y2 <= y3
+      
       s2: x2 <= x1 <= x3 && y1 <= y2 <= y3
+      
       etc, covering every possibility. Every possible order of 3 elements is 3! = 6 possible orders for both the x side and
       the y side. Combining each possibility from both sides makes the number of possible states 6^2 = 36, which makes for a
       Q table of 108 elements.
    b. The second table contains only the relations of each value to its previous value. This means this implementation does
       not take into account the relations between the joints, but only the movement of each joint.
+      
       s1: x1 <= x1' && x2 <= x2' && x3 <= x3' && y1 <= y1' && y2 <= y2' && y3 <= y3'
+      
       s2: x1 > x1' && x2 <= x2' && x3 <= x3' && y1 <= y1' && y2 <= y2' && y3 <= y3'
+      
       etc, again covering every possibility. Since every state contains 6 comparisons that can either be <= or >, the amount
       of states comes to 2^6 = 64, and the size of the Q-table comes to 192 elements.
    c. The third table contains a combination of the information contained in the previous two implementations. This means the
       table contains 36 * 192 = 6912 states, and 6912 * 3 = 20736 elements. I am only going to write out 1 example state from
       this table:
+      
       s1: x1 <= x2 <= x3 && y1 <= y2 <= y3 && x1 <= x1' && x2 <= x2' && x3 <= x3' && y1 <= y1' && y2 <= y2' && y3 <= y3'
+      
       Yeah, you get the idea. This means this implementation knows where its joints currently are, as well as the direction
       they moved in since the last step.
 
