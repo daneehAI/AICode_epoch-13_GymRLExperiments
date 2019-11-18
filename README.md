@@ -37,7 +37,7 @@ Each notebook contains a few variations of a specific algorithm. A list of all a
 
 Results:
 
-2. Deep Q Learning. This is Q-learning, but with a neural network instead of a Q-table. This neural network is then called a Deep Q Network. I also have three implementations of this technology, the first two of which I implemented using the paper "Deep Q-Learning with Recurrent Neural Networks" by Clare Chen, Vincent Ying and Dillon Laird of Stanford University, and with some help from the webpage https://keon.io/deep-q-learning/, which implements a DQN on the cartpole gym environment.
+2. Deep Q Learning. This is Q-learning, but with a neural network instead of a Q-table. This neural network is then called a Deep Q Network. I also have three implementations of this technology, the first two of which I implemented using the paper "Deep Q-Learning with Recurrent Neural Networks" by Clare Chen, Vincent Ying and Dillon Laird of Stanford University, and with some help from the webpage https://keon.io/deep-q-learning/, which implements a DQN on the cartpole gym environment using a DQN class.
    
    a. The first implementation is regular Deep Q-Learning, using regular dense layers. This means that the agent acts only on 
    its current state.
